@@ -1,0 +1,88 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #FCFBF9;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+.register-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(43, 45, 66, 0.08);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.register-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #2B2D42;
+    text-align: center;
+}
+
+.register-page .subtitle {
+    text-align: center;
+    color: #8D99AE;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.register-page .navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.register-page .navigation-buttons button {
+    background-color: #F8F9FA;
+    color: #2B2D42;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.register-card .navigation-buttons button:hover {
+    background-color: #B5A3CC;
+    color: white;
+    border-color: #B5A3CC;
+    transform: translateY(-2px);
+}
+
+.register-card .next-button {
+    align-self: flex-end;
+    padding: 0.75rem;
+}
+
+.register-card .previous-button {
+    align-self: flex-start;
+    padding: 0.75rem;
+}
+
+.register-card .show-password-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.register-card .show-password {
+    margin: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.register-card .show-password-label {
+    font-size: 0.85rem;
+    color: #818181;
+    font-weight: 500;
+    line-height: 1;
+}

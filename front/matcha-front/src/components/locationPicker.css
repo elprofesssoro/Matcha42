@@ -1,0 +1,93 @@
+.location-container {
+    position: relative;
+}
+
+.location-container .input-field {
+    margin-bottom: 0 !important;
+}
+
+.location-container .suggestions-list {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    list-style-type: none;
+    padding: 0.35rem;
+    margin: 0;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    max-height: 220px;
+    overflow-y: auto;
+    background-color: #FCFBF9;
+
+    box-shadow: 0 10px 25px -5px rgba(43, 45, 66, 0.06),
+        0 8px 10px -6px rgba(43, 45, 66, 0.06);
+
+    box-sizing: border-box;
+}
+
+.location-container .suggestions-list li {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+    color: #3A4042;
+    cursor: pointer;
+    border-radius: 8px;
+
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    display: flex;
+    align-items: center;
+}
+
+.location-container .suggestions-list li:hover {
+    background-color: rgba(181, 163, 204, 0.15);
+    color: #5C4E75;
+
+}
+
+.location-container .suggestions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.location-container .suggestions-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.location-container .suggestions-list::-webkit-scrollbar-thumb {
+    background: #E2E8F0;
+    border-radius: 10px;
+}
+
+.location-container .suggestions-list::-webkit-scrollbar-thumb:hover {
+    background: #CBD5E1;
+}
+
+.location-container .or {
+    text-align: center;
+    margin: 0.5rem 0;
+    color: #8D99AE;
+    font-size: 0.85rem;
+}
+
+.location-container .location-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #F8F9FA;
+    color: #2B2D42;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1rem;
+}
+
+.location-container .location-button:hover {
+    background-color: #B5A3CC;
+    color: white;
+    border-color: #B5A3CC;
+    transform: translateY(-2px);
+}

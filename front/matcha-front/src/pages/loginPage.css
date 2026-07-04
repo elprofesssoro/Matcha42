@@ -1,0 +1,119 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #FCFBF9;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(43, 45, 66, 0.08); 
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.login-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
+    color: #2B2D42;
+    text-align: center;
+}
+
+.login-card .subtitle {
+    text-align: center;
+    color: #8D99AE;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-page .social-login {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.login-page .social-login button {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #F8F9FA;
+    color: #2B2D42;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.login-page .social-login button:hover {
+    background-color: #B5A3CC;
+    color: white;
+    border-color: #B5A3CC;
+    transform: translateY(-2px);
+}
+
+.login-page .text-or {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #8D99AE;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-page .login-button {
+    padding: 0.85rem;
+    background-color: #F4A261;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.login-page .login-button:hover {
+    background-color: #E7914F;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 162, 97, 0.3);
+}
+
+.login-page #helpers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.login-page #helpers p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #8D99AE;
+}
+
+.login-page #helpers a {
+    color: #B5A3CC;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.login-page #helpers a:hover {
+    color: #766a86;
+}

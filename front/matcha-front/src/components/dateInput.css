@@ -1,0 +1,43 @@
+.input-field .select-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.input-field .select-row select {
+    flex: 1;
+
+    background-color: #ffffff;
+    padding: 0.75rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #3A4042;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238D99AE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.input-field .select-row select:focus {
+    outline: none;
+    border-color: #B5A3CC;
+    box-shadow: 0 0 0 3px rgba(181, 163, 204, 0.2);
+}
+
+.input-field .select-row.error select {
+    border-color: #EF4444;
+}
+
+.input-field .select-row select option {
+    color: #3A4042;
+    background-color: #ffffff;
+}
