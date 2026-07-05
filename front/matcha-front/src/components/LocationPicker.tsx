@@ -1,12 +1,7 @@
 import { useState } from "react";
 import InputField from "./InputField";
 import './locationPicker.css';
-
-export type LocationData = {
-    displayString: string;
-    latitude: number;
-    longitude: number;
-};
+import type { UserLocation } from "../pages/RegisterPage";
 
 type Suggestion = {
     name: string;
@@ -17,12 +12,8 @@ type Suggestion = {
 };
 
 interface LocationPickerProps {
-    updateFormData: (locationData: LocationData) => void;
-    formData: {
-        location: string;
-        locationLatitude: number;
-        locationLongitude: number;
-    };
+    updateFormData: (locationData: UserLocation) => void;
+    formData: UserLocation;
     errorMessage?: string;
 }
 
@@ -83,7 +74,7 @@ function formatCityCountry(suggestion: Suggestion): string {
 }
 
 function requestLocation(
-    onSuccess: (coords: LocationData) => void,
+    onSuccess: (coords: UserLocation) => void,
     onError: (message: string) => void
 ): void {
     if (!navigator.geolocation) {
@@ -153,7 +144,7 @@ export function LocationPicker({ updateFormData, formData, errorMessage }: Locat
 
     const handleSelectCity = (city: Suggestion) => {
         setSuggestions([]);
-        const selectedLocation: LocationData = {
+        const selectedLocation: UserLocation = {
             displayString: formatCityCountry(city),
             latitude: city.lat,
             longitude: city.lng,
@@ -168,7 +159,7 @@ export function LocationPicker({ updateFormData, formData, errorMessage }: Locat
                 label="Location"
                 type="text"
                 placeholder="e.g., Berlin, Germany"
-                value={formData.location}
+                value={formData.displayString}
                 onChange={handleInputChange}
                 errorMessage={errorMessage}
             />

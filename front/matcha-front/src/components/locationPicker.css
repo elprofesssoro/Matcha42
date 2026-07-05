@@ -91,3 +91,8 @@
     border-color: #B5A3CC;
     transform: translateY(-2px);
 }
+
+.location-container .error-message {
+    color: #EF4444;
+    font-size: 0.75rem;
+}

@@ -1,45 +1,49 @@
-import { useState } from "react";
+import {useState } from "react";
 import InputField from "../components/InputField";
 import DateInput from '../components/DateInput';
 import LocationPicker from "../components/LocationPicker";
-import LocationData from "../components/LocationPicker";
+import type { UserLocation } from "./RegisterPage";
+
+type FormData = {
+    name: string;
+    birthday: string;
+    location: UserLocation;
+};
 
 interface RegisterStep2Props {
-    updateFormData: (fieldName: string, value: string) => void;
-    formData: {
-        name: string;
-        birthday: string;
-        location: string,
-        locationLatitude: number,
-        locationLongitude: number
-    };
+    updateFormData: (fieldName: keyof FormData, value: FormData[keyof FormData]) => void;
+    formData: FormData;
     nextStep: () => void;
     previousStep: () => void;
 }
 
-function checkInput(formData: { name: string; birthday: string; location: string }, setBirthdayError: (error: boolean) => void): boolean {
-    if (!formData.birthday) {
-        setBirthdayError(true);
-        return false;
+type FormErrors = {
+    nameError?: string;
+    birthdayError?: string;
+    locationError?: string;
+};
+
+function checkInput(formData: FormData): FormErrors {
+    const errors: FormErrors = {};
+    
+    if (!formData.name || !formData.name.trim()) {
+        errors.nameError = "Name is required.";
     }
 
-    const birthday = new Date(formData.birthday);
-    const today = new Date();
-    const minimumBirthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-
-    if (Number.isNaN(birthday.getTime()) || birthday > today || birthday > minimumBirthDate) {
-        setBirthdayError(true);
-        return false;
+    if (!formData.birthday || formData.birthday.split('-').length < 2) {
+        errors.birthdayError = "Birthday is required.";
     }
 
-    setBirthdayError(false);
+    if (!formData.location || !formData.location.displayString.trim()) {
+        errors.locationError = "Location is required.";
+    }
 
-    return !!(formData.name.trim() && formData.location.trim());
+    return errors;
 }
 
 function RegisterStep2({ updateFormData, formData, nextStep, previousStep }: RegisterStep2Props) {
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [birthdayError, setBirthdayError] = useState(false);
+    const errors = checkInput(formData);
 
     return (
         <section className="register-step2">
@@ -52,7 +56,7 @@ function RegisterStep2({ updateFormData, formData, nextStep, previousStep }: Reg
                 placeholder="e.g., Bob"
                 value={formData.name}
                 onChange={(e) => updateFormData("name", e.target.value)}
-                errorMessage={isSubmitted && !formData.name ? 'Name is required.' : undefined}
+                errorMessage={isSubmitted ? errors.nameError : undefined}
             />
             <DateInput
                 name="birthday"
@@ -62,16 +66,18 @@ function RegisterStep2({ updateFormData, formData, nextStep, previousStep }: Reg
                 currentMonth={formData.birthday ? formData.birthday.split('-')[1] : ''}
                 currentYear={formData.birthday ? formData.birthday.split('-')[0] : ''}
                 updateDate={(value) => updateFormData("birthday", value)}
-                errorMessage={isSubmitted && birthdayError ? 'Valid birthday is required (must be at least 18 years old).' : undefined}
+                errorMessage={isSubmitted ? errors.birthdayError : undefined}
             />
             <LocationPicker
                 updateFormData={(locationData) => {
-                    updateFormData("location", locationData.displayString);
-                    updateFormData("locationLatitude", locationData.latitude.toString());
-                    updateFormData("locationLongitude", locationData.longitude.toString());
+                    updateFormData("location", {
+                        displayString: locationData.displayString,
+                        latitude: locationData.latitude,
+                        longitude: locationData.longitude
+                    });
                 }}
-                formData={formData}
-                errorMessage={isSubmitted && !formData.location ? 'Location is required.' : undefined}
+                formData={formData.location}
+                errorMessage={isSubmitted ? errors.locationError : undefined}
             />
 
             <section className="navigation-buttons">
@@ -79,11 +85,11 @@ function RegisterStep2({ updateFormData, formData, nextStep, previousStep }: Reg
                     Previous
                 </button>
                 <button className="next-button" type="button" onClick={() => {
-                    if (checkInput(formData, setBirthdayError)) {
+                    if (Object.keys(errors).length === 0) {
+                        console.log("Next Step: Form Data:", formData);
                         nextStep();
                     } else {
                         console.log("Form Data:", formData);
-
                         setIsSubmitted(true);
                     }
                 }}>

@@ -22,6 +22,10 @@ function DateInput({ name, label, type, placeholder, currentMonth,
                     value={currentMonth}
                     onChange={(e) => {
                         const newMonth = e.target.value;
+                        if (newMonth === "") {
+                            updateDate("");
+                            return;
+                        }
                         const year = currentYear || "2000";
                         updateDate(`${year}-${newMonth}`);
                     }}
@@ -46,6 +50,10 @@ function DateInput({ name, label, type, placeholder, currentMonth,
                     onChange={(e) => {
                         const newYear = e.target.value;
                         const month = currentMonth || "01";
+                        if (newYear === "") {
+                            updateDate("");
+                            return;
+                        }
                         updateDate(`${newYear}-${month}`);
                         console.log(`DATE: ${new Date().getFullYear()}`);
                     }}

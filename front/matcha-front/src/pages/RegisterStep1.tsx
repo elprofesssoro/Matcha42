@@ -2,7 +2,7 @@ import InputField from "../components/InputField";
 import { useEffect, useState } from "react";
 
 interface RegisterStep1Props {
-    updateFormData: (fieldName: string, value: string) => void;
+    updateFormData: (fieldName: keyof FormData, value: FormData[keyof FormData]) => void;
     formData: FormData;
     nextStep: () => void;
 }
@@ -78,7 +78,7 @@ function RegisterStep1({ updateFormData, formData, nextStep }: RegisterStep1Prop
                 name="username"
                 label="Username"
                 type="text"
-                placeholder="e.g., maxmuster"
+                placeholder="e.g., bobglasko"
                 value={formData.username}
                 onChange={(e) => updateFormData("username", e.target.value)}
                 errorMessage={isSubmitted ? currentErrors.usernameError : undefined}

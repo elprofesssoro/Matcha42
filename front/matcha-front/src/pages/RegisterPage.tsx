@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './registerPage.css';
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep2 from './RegisterStep2';
+import RegisterStep3 from './RegisterStep3';
 
 interface DataForm {
     username: string;
@@ -12,13 +13,11 @@ interface DataForm {
     bio: string;
     interests: string[];
     birthday: string;
-    location: string;
-    locationLatitude: number;
-    locationLongitude: number;
+    location: UserLocation;
 
 }
 
-type Location = {
+export type UserLocation = {
     displayString: string;
     latitude: number;
     longitude: number;
@@ -34,9 +33,11 @@ function RegisterPage() {
         bio: '',
         interests: [],
         birthday: '',
-        location: '',
-        locationLatitude: 0,
-        locationLongitude: 0,
+        location: {
+            displayString: '',
+            latitude: 0,
+            longitude: 0
+        }
     });
 
     const handleNextStep = () => {
@@ -47,12 +48,12 @@ function RegisterPage() {
         setStep(step - 1);
     };
 
-    const updateFormData = (fieldName: string, value: string) => {
-        setFormData((prev) => ({
+    function updateFormData<K extends keyof DataForm>(fieldName: K, value: DataForm[K]) {
+        setFormData(prev => ({
             ...prev,
             [fieldName]: value
         }));
-    };
+    }
 
     return (
         <div className="register-page">
@@ -72,29 +73,15 @@ function RegisterPage() {
                         previousStep={handlePreviousStep}
                     />
                 )}
-
-                {/* <h1>Register</h1>
-                <form>
-                    <section className="social-login">
-                        <button className="google-login">Register with Google</button>
-                        <button className="facebook-login">Register with Facebook</button>
-                    </section>
-                    <p className='text-or'>Or</p>
-                    <InputField
-                        name="credentials"
-                        label="Username or Email"
-                        type="text"
-                        placeholder="e.g., max@muster.de"
+                {step === 3 && (
+                    <RegisterStep3
+                        updateFormData={updateFormData}
+                        formData={formData}
+                        nextStep={handleNextStep}
+                        previousStep={handlePreviousStep}
                     />
+                )}
 
-                    <InputField
-                        name="password"
-                        label="Password"
-                        type="password"
-                        placeholder="••••••••"
-                    />
-                    <button className="login-button" type="submit">Register</button>
-                </form> */}
             </div>
         </div>
     );
