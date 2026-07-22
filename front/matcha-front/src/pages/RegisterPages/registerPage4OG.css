@@ -1,0 +1,171 @@
+.photo-slider-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.main-image-preview {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #FCFBF9;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(43, 45, 66, 0.05);
+    border: 3px solid #B5A3CC;
+}
+
+.main-card, .main-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-placeholder {
+    border: 2px dashed #B5A3CC;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.main-placeholder:hover {
+    background-color: #F3EFF7;
+}
+.big-plus { font-size: 3rem; color: #B5A3CC; }
+.upload-text { font-size: 0.9rem; color: #8D99AE; margin-top: 0.5rem; }
+
+.main-remove-btn {
+    position: absolute;
+    bottom: 12px;
+    background-color: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.main-remove-btn:hover { background-color: #DC2626; }
+
+.thumbnail-carousel {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    overflow-x: auto; 
+    padding: 0.25rem 0.25rem 0.75rem 0.25rem;
+    scroll-behavior: smooth;
+}
+
+.thumbnail-carousel::-webkit-scrollbar {
+    height: 5px;
+}
+.thumbnail-carousel::-webkit-scrollbar-thumb {
+    background: #E2E8F0;
+    border-radius: 10px;
+}
+
+.thumbnail-card, .plus-thumbnail-card {
+    flex-shrink: 0;
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.thumbnail-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-card.active {
+    border: 3px solid #B5A3CC;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 2px rgba(181, 163, 204, 0.4);
+}
+
+.plus-thumbnail-card {
+    border: 2px dashed #B5A3CC;
+    background-color: #FCFBF9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.plus-thumbnail-card:hover {
+    background-color: #F3EFF7;
+}
+.plus-icon {
+    font-size: 1.5rem;
+    color: #B5A3CC;
+}
+
+.hidden-file-input { display: none !important; }
+
+.main-controls {
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgba(43, 45, 66, 0.85);
+    padding: 0.4rem 0.8rem;
+    border-radius: 25px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.control-btn.remove-btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 15px;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+}
+
+.control-btn.remove-btn:hover {
+    background-color: #EF4444 !important;
+    color: white;
+}
+
+.control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none !important;
+}

@@ -1,0 +1,36 @@
+.register-step3 .selected-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.register-step3 .interest-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #B5A3CC;
+    color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.register-step3 .interest-tag button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.register-step3 .interest-tag button:hover {
+    color: #e1cbfe;
+}
+
+.register-step3 .navigation-buttons {
+    margin-top: 1rem;
+}

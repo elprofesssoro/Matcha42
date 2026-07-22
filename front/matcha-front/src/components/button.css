@@ -1,0 +1,18 @@
+.common-button {
+    background-color: #F8F9FA;
+    color: #2B2D42;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px #B5A3CC;
+
+    transition: all 0.2s ease;
+}
+
+.common-button:hover {
+    background-color: #B5A3CC;
+    color: white;
+    border-color: #B5A3CC;
+    transform: translateY(-2px);
+}

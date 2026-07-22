@@ -1,4 +1,4 @@
-import InputField from "../components/InputField";
+import InputField from "../../components/InputField";
 import { useEffect, useState } from "react";
 
 interface RegisterStep1Props {
@@ -113,7 +113,7 @@ function RegisterStep1({ updateFormData, formData, nextStep }: RegisterStep1Prop
                     <label htmlFor="show-password" className="show-password-label">Show Password</label>
                 </div>
                 <button className="next-button" type="button" onClick={() => {
-                    if (Object.keys(currentErrors).length === 0) {
+                    if (true || Object.keys(currentErrors).length === 0) {
                         nextStep();
                     } else {
                         setIsSubmitted(true);

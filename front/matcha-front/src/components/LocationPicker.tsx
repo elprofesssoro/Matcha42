@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputField from "./InputField";
 import './locationPicker.css';
-import type { UserLocation } from "../pages/RegisterPage";
+import type { UserLocation } from "../pages/RegisterPages/RegisterPage";
 
 type Suggestion = {
     name: string;

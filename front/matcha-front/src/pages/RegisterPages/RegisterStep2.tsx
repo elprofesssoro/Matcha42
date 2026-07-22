@@ -1,7 +1,7 @@
-import {useState } from "react";
-import InputField from "../components/InputField";
-import DateInput from '../components/DateInput';
-import LocationPicker from "../components/LocationPicker";
+import { useState } from "react";
+import InputField from "../../components/InputField";
+import DateInput from '../../components/DateInput';
+import LocationPicker from "../../components/LocationPicker";
 import type { UserLocation } from "./RegisterPage";
 
 type FormData = {
@@ -25,7 +25,7 @@ type FormErrors = {
 
 function checkInput(formData: FormData): FormErrors {
     const errors: FormErrors = {};
-    
+
     if (!formData.name || !formData.name.trim()) {
         errors.nameError = "Name is required.";
     }
@@ -85,7 +85,7 @@ function RegisterStep2({ updateFormData, formData, nextStep, previousStep }: Reg
                     Previous
                 </button>
                 <button className="next-button" type="button" onClick={() => {
-                    if (Object.keys(errors).length === 0) {
+                    if (true || Object.keys(errors).length === 0) {
                         console.log("Next Step: Form Data:", formData);
                         nextStep();
                     } else {

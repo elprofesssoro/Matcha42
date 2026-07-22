@@ -1,11 +1,13 @@
-import InputField from '../components/InputField';
+import InputField from '../../components/InputField';
 import { useState } from 'react';
 import './registerPage.css';
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep2 from './RegisterStep2';
 import RegisterStep3 from './RegisterStep3';
+import RegisterStep4 from './RegisterStep4';
+import RegisterStep5 from './RegisterStep5'
 
-interface DataForm {
+export interface DataForm {
     username: string;
     email: string;
     password: string;
@@ -14,7 +16,7 @@ interface DataForm {
     interests: string[];
     birthday: string;
     location: UserLocation;
-
+    images: File[];
 }
 
 export type UserLocation = {
@@ -37,7 +39,8 @@ function RegisterPage() {
             displayString: '',
             latitude: 0,
             longitude: 0
-        }
+        },
+        images: []
     });
 
     const handleNextStep = () => {
@@ -53,6 +56,10 @@ function RegisterPage() {
             ...prev,
             [fieldName]: value
         }));
+    }
+
+    function registerUser() {
+
     }
 
     return (
@@ -79,6 +86,21 @@ function RegisterPage() {
                         formData={formData}
                         nextStep={handleNextStep}
                         previousStep={handlePreviousStep}
+                    />
+                )}
+                {step === 4 && (
+                    <RegisterStep4
+                        updateFormData={updateFormData}
+                        formData={formData}
+                        nextStep={handleNextStep}
+                        previousStep={handlePreviousStep}
+                    />
+                )}
+                {step === 5 && (
+                    <RegisterStep5
+                        dataForm={formData}
+                        previousStep={handlePreviousStep}
+                        register={registerUser}
                     />
                 )}
 

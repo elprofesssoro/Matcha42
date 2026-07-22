@@ -1,0 +1,148 @@
+.register-step4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.register-step4 .image-section {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.register-step4 .empty-image-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f1edf6;
+    border-radius: 20px;
+    border: 2px dashed #B5A3CC;
+    box-shadow: inset 0px 0px 12px rgba(181, 163, 204, 0.1);
+    color: #B5A3CC;
+    font-weight: 500;
+}
+
+.register-step4 .preview-carousel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(241, 237, 246, 0.6);
+    border-radius: 20px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.register-step4 .preview-carousel > div,
+.register-step4 .preview-carousel .empty-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.register-step4 .preview-carousel > *:first-child {
+    grid-column: span 4;
+    justify-self: center;
+    width: 80px;
+    height: 90px;
+}
+
+.register-step4 .preview-carousel > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(181, 163, 204, 0.3);
+    display: block;
+}
+
+.register-step4 .preview-carousel .empty-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(181, 163, 204, 0.6);
+    background-color: #ffffff;
+    color: #B5A3CC;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.register-step4 .preview-carousel .empty-preview:hover {
+    background-color: #f1edf6;
+    border-color: #B5A3CC;
+}
+
+.register-step4 .preview-carousel .remove-image {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #2B2D42;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    transition: all 0.2s ease;
+}
+
+.register-step4 .preview-carousel .remove-image:hover {
+    background-color: #E63946;
+    color: white;
+    transform: scale(1.1);
+}
+
+.register-step4 .preview-carousel > div:first-child::after {
+    content: "Main";
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(43, 45, 66, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.register-step4 .controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.hidden-input {
+    display: none !important;
+}
+
+.register-step4 .error-message {
+    align-self: flex-start;
+    color: #EF4444;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
