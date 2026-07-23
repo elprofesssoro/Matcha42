@@ -1,0 +1,99 @@
+.preview-carousel {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    background-color: rgba(241, 237, 246, 0.6);
+    border-radius: 20px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.preview-carousel .preview-image,
+.preview-carousel .empty-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.preview-carousel .preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(181, 163, 204, 0.2);
+    display: block;
+}
+
+.preview-carousel .empty-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(181, 163, 204, 0.6);
+    background-color: #ffffff;
+    color: #b5a3cc;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.preview-carousel .empty-preview:hover {
+    background-color: #f1edf6;
+    border-color: #b5a3cc;
+}
+
+.preview-carousel .remove-image {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #2b2d42;
+    font-size: 0.65rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.remove-image:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.preview-carousel .preview-image.is-main::after {
+    content: "Main";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(43, 45, 66, 0.9);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+    .preview-carousel {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        gap: 12px;
+    }
+
+    .preview-carousel>*:first-child {
+        grid-column: 1 / -1;
+        max-width: 30%;
+        align-self: center;
+        justify-self: center;
+    }
+}

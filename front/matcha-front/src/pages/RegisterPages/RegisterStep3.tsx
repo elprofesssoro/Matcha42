@@ -3,7 +3,7 @@ import InputField from "../../components/InputField";
 import SuggestionList from "../../components/SuggestionList";
 import './registerPage3.css';
 
-const maxInterestLength = 8;
+const maxInterestLength = 9;
 
 type DataFrom = {
     bio: string;
@@ -30,8 +30,11 @@ function checkInput(formData: DataFrom): FormErrors {
     else if (formData.interests.length >= maxInterestLength) {
         errors.interestsError = "Too many interests selected.";
     }
-    if (!formData.bio || !formData.bio.trim()) {
+    if (!formData.bio.trim()) {
         errors.bioError = "Bio is required.";
+    }
+    if (formData.bio.trim().length < 10 || formData.bio.trim().length > 50) {
+        errors.bioError = "Bio must be between 10 and 50 characters long.";
     }
 
     return errors;

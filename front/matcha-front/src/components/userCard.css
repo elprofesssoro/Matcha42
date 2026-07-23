@@ -83,15 +83,14 @@
 }
 
 .user-card .bio {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .user-card .tags-wrapper {
@@ -126,12 +125,82 @@
     display: none;
 }
 
-/* Hide tags after the 12th */
 .user-card .tags-wrapper:not(.expanded) .real-tag:nth-child(12)~.real-tag {
     display: none;
 }
 
-/* ONLY show the three dots if a 13th tag exists */
 .user-card .tags-wrapper:not(.expanded) .real-tag:nth-child(13)~.more-dots-badge {
     display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .user-card {
+        width: 280px;
+        height: 380px;
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+
+    .user-card .tags {
+        gap: 4px;
+        margin-top: 6px;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .user-card .tags-wrapper:not(.expanded) .real-tag:nth-child(5)~.real-tag {
+        display: none;
+    }
+
+    .user-card .tags-wrapper:not(.expanded) .real-tag:nth-child(6)~.more-dots-badge {
+        display: inline-flex;
+    }
+
+    .user-card .tags-wrapper.expanded .real-tag {
+        display: inline-flex;
+    }
+
+    .user-card .tags-wrapper.expanded .more-dots-badge {
+        display: none;
+    }
+
+    .user-card .tags-wrapper.expanded {
+        max-height: 120px;
+        overflow-y: auto;
+        padding-bottom: 8px;
+    }
+
+    .user-card .tag {
+        padding: 2px 8px;
+        font-size: 0.65rem;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .user-card .info {
+        padding: 40px 14px 12px 14px;
+        gap: 2px;
+    }
+
+    .user-card .name {
+        font-size: 1.25rem;
+    }
+
+    .user-card .location {
+        font-size: 0.7rem;
+    }
+
+    .user-card .bio {
+        font-size: 0.78rem;
+        line-height: 1.3;
+        margin-top: 2px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .user-card .img-slider-btn {
+        font-size: 1.5rem;
+        width: 35px;
+    }
 }

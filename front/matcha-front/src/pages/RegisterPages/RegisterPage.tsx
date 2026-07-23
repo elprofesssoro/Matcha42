@@ -1,4 +1,3 @@
-import InputField from '../../components/InputField';
 import { useState } from 'react';
 import './registerPage.css';
 import RegisterStep1 from './RegisterStep1';
